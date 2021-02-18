@@ -43,6 +43,18 @@ function parseMessage(msg) {
   return current
 }
 
+const commands = {
+  about: "ctrlAV is an ecosystem for audiovisual performers and their audiences to try new things and brainstorm for a new tomorrow",
+  today: "TidalCycles and Twitch Chat Bot",
+  commands: () => {
+    return Object.keys(commands)
+      .map((command) => " !" + command)
+    },
+  schedule: "The livestream schedule is 8-10pm EST (+5 UTC) on Thursdays, but the topics have not been decided yet",
+  zork: "West of House This is an open field west of a white house, with a boarded front door. There is a small mailbox here. A rubber mat saying 'Welcome to Zork!' lies by the door.",
+  discord: "Here's an invite to the discord channel :) https://discord.gg/F8DTjyZgRY"
+}
+
 function handleNewMessage(msg, username) {
 
   try {
@@ -149,6 +161,29 @@ function onMessageHandler (target, context, msg, self) {
   const commandName = msg.split(' ')[0]
 
   switch(commandName) {
+    case '!today':
+      twitchClient.say(target, `Today's topic is ${commands.today}`);
+      console.log(`ran ${commandName}`);
+      break;
+    case '!commands':
+      twitchClient.say(target, `Available commands are ${commands.commands()}`)
+      console.log(`ran ${commandName}`);
+      break;
+    case '!about':
+      twitchClient.say(target, commands.about)
+      console.log(`ran ${commandName}`);
+      break;
+    case '!schedule':
+      twitchClient.say(target, commands.schedule)
+      console.log(`ran ${commandName}`);
+      break;
+    case '!zork':
+      twitchClient.say(target, commands.zork)
+      console.log(`ran ${commandName}`);
+      break;
+    case "!discord":
+      twitchClient.say(target, commands.disord)
+      console.log(`ran ${commandName}`);
     case "!t":
       const result = handleNewMessage(msg.substr(msg.indexOf(" ") + 1), context.username);
       twitchClient.say(target, result);

@@ -1,11 +1,11 @@
 const config = {
     twitch: {
         identity: {
-            username: "YOUR_BOT_ACCOUNT",
-            password: "YOUR_TWITCH_OAUTH",
+            username: "botforctrlAV",
+            password: "oauth:4fj6a30erjptmlcxo390rywnhlbjwt",
         },
         channels: [
-            "YOUR_CHANNEL_NAME"
+            "ctrlAV"
         ],
     },
     network: {
