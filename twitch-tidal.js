@@ -182,7 +182,7 @@ function onMessageHandler (target, context, msg, self) {
       console.log(`ran ${commandName}`);
       break;
     case "!discord":
-      twitchClient.say(target, commands.disord)
+      twitchClient.say(target, commands.discord)
       console.log(`ran ${commandName}`);
     case "!t":
       const result = handleNewMessage(msg.substr(msg.indexOf(" ") + 1), context.username);
